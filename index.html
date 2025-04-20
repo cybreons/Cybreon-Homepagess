@@ -17,19 +17,16 @@
             --glass-border: rgba(197, 204, 213, 0.1);
             --grid-size: 40px;
         }
-
         @font-face {
             font-family: 'Space Grotesk';
             src: url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Space Grotesk', sans-serif;
         }
-
         body {
             background-color: var(--black-bg);
             color: var(--muted-grey);
@@ -37,7 +34,6 @@
             overflow-x: hidden;
             -webkit-overflow-scrolling: touch;
         }
-
         #neuralCanvas {
             position: fixed;
             top: 0;
@@ -48,7 +44,6 @@
             opacity: 0.8;
             touch-action: none;
         }
-
         .vignette {
             position: fixed;
             top: 0;
@@ -61,7 +56,6 @@
             opacity: 0.5;
             animation: scanline 8s linear infinite;
         }
-
         .grid {
             position: fixed;
             width: 100%;
@@ -75,7 +69,6 @@
             pointer-events: none;
             animation: gridFlicker 3s ease-in-out infinite;
         }
-
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -83,7 +76,6 @@
             position: relative;
             z-index: 2;
         }
-
         nav {
             display: flex;
             justify-content: space-between;
@@ -98,14 +90,12 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(197, 204, 213, 0.1);
         }
-
         nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
         }
-
         .logo {
             display: flex;
             align-items: center;
@@ -113,7 +103,6 @@
             text-decoration: none;
             perspective: 500px;
         }
-
         .logo img {
             width: 45px;
             height: 45px;
@@ -121,12 +110,10 @@
             box-shadow: 0 0 15px rgba(197, 204, 213, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .logo:hover img {
             transform: rotateY(10deg) scale(1.05);
             box-shadow: 0 0 25px rgba(0, 221, 235, 0.5);
         }
-
         .logo-text {
             font-size: 1.8rem;
             font-weight: 700;
@@ -135,18 +122,14 @@
             text-shadow: 0 0 8px rgba(197, 204, 213, 0.5);
             transition: all 0.3s ease;
         }
-
         .logo:hover .logo-text {
             text-shadow: 0 0 15px rgba(0, 221, 235, 0.8);
-            animation: glitch 0.5s ease-in-out;
         }
-
         .nav-links {
             display: flex;
             gap: 0.8rem;
             align-items: center;
         }
-
         .nav-links a {
             color: var(--muted-grey);
             text-decoration: none;
@@ -157,13 +140,11 @@
             border-radius: 4px;
             touch-action: manipulation;
         }
-
         .nav-links a:hover {
             background: rgba(0, 221, 235, 0.2);
             color: var(--silver-grey);
             transform: translateY(-2px);
         }
-
         .hero {
             min-height: 100vh;
             display: flex;
@@ -172,7 +153,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -186,13 +166,11 @@
             animation: gradientShift 15s ease infinite;
             z-index: -1;
         }
-
         .hero-content {
             flex: 1;
             padding-right: 2rem;
             position: relative;
         }
-
         .hero-content::before {
             content: '';
             position: absolute;
@@ -204,7 +182,6 @@
             animation: rotate 20s linear infinite;
             pointer-events: none;
         }
-
         .hero h1 {
             font-size: 3.5rem;
             line-height: 1.1;
@@ -216,11 +193,9 @@
             animation: glow 2s ease-in-out infinite alternate;
             position: relative;
         }
-
         .hero h1:hover {
             animation: glitch 0.5s ease-in-out;
         }
-
         .hero p {
             font-size: 1rem;
             color: var(--muted-grey);
@@ -231,7 +206,6 @@
             border-radius: 6px;
             background: rgba(197, 204, 213, 0.05);
         }
-
         .btn {
             padding: 0.8rem 2rem;
             font-size: 1rem;
@@ -246,7 +220,6 @@
             touch-action: manipulation;
             border: 1px solid var(--neon-blue);
         }
-
         .btn::before {
             content: '';
             position: absolute;
@@ -258,124 +231,80 @@
             transform: rotate(45deg);
             transition: all 0.3s ease;
         }
-
         .btn:hover::before {
             transform: rotate(45deg) translate(50%, 50%);
         }
-
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 0 25px rgba(0, 221, 235, 0.3);
             color: var(--neon-blue);
         }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1001;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: var(--darker-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            width: 400px;
-            max-width: 90%;
-            border: 1px solid var(--glass-border);
-            position: relative;
-        }
-
-        .modal-content h2 {
-            color: var(--silver-grey);
-            margin-bottom: 1rem;
-        }
-
-        .modal-content input {
-            width: 100%;
-            padding: 0.5rem;
-            margin-bottom: 1rem;
-            background: rgba(197, 204, 213, 0.1);
-            border: 1px solid var(--glass-border);
-            color: var(--silver-grey);
-            border-radius: 4px;
-        }
-
-        .modal-content button {
-            width: 100%;
-            padding: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .close {
+        .scroll-indicator {
             position: absolute;
-            top: 10px;
-            right: 15px;
-            color: var(--muted-grey);
-            font-size: 1.5rem;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35px;
+            height: 35px;
+            border: 2px solid var(--neon-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s ease-in-out infinite;
             cursor: pointer;
+            z-index: 2;
         }
-
+        .scroll-indicator::before {
+            content: '↓';
+            color: var(--neon-blue);
+            font-size: 1.2rem;
+            text-shadow: 0 0 8px rgba(0, 221, 235, 0.5);
+        }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes glow {
             0% { text-shadow: 0 0 8px rgba(197, 204, 213, 0.6), 0 0 15px rgba(197, 204, 213, 0.4), 0 0 25px rgba(197, 204, 213, 0.2); }
             100% { text-shadow: 0 0 12px rgba(197, 204, 213, 0.8), 0 0 20px rgba(197, 204, 213, 0.6), 0 0 35px rgba(197, 204, 213, 0.3); }
         }
-
         @keyframes rotate {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
         @keyframes neonPulse {
             0% { box-shadow: 0 0 15px rgba(0, 221, 235, 0.5), 0 0 30px rgba(0, 221, 235, 0.3); }
             50% { box-shadow: 0 0 20px rgba(0, 221, 235, 0.7), 0 0 40px rgba(0, 221, 235, 0.5); }
             100% { box-shadow: 0 0 15px rgba(0, 221, 235, 0.5), 0 0 30px rgba(0, 221, 235, 0.3); }
         }
-
         @keyframes pulse {
             0% { transform: translateX(-50%) scale(1); opacity: 0.7; }
             50% { transform: translateX(-50%) scale(1.15); opacity: 1; }
             100% { transform: translateX(-50%) scale(1); opacity: 0.7; }
         }
-
         @keyframes glitch {
             0% { transform: translate(0); }
-            20% { transform: translate(-2px,  cozinha 2px); }
+            20% { transform: translate(-2px, 2px); }
             40% { transform: translate(-2px, -2px); }
             60% { transform: translate(2px, 2px); }
             80% { transform: translate(2px, -2px); }
             100% { transform: translate(0); }
         }
-
         @keyframes scanline {
             0% { background-position: 0 0; }
             100% { background-position: 0 100px; }
         }
-
         @keyframes gridFlicker {
             0% { opacity: 0.2; }
             50% { opacity: 0.15; }
             100% { opacity: 0.2; }
         }
-
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .hero { padding: 4rem 0; }
@@ -384,14 +313,210 @@
             .logo-text { font-size: 1.4rem; }
             .btn { padding: 0.6rem 1.5rem; font-size: 1rem; }
             .hero p { font-size: 0.95rem; max-width: 90%; }
+            .scroll-indicator { width: 30px; height: 30px; }
+            .scroll-indicator::before { font-size: 1rem; }
         }
-
         @media (max-width: 480px) {
             .hero h1 { font-size: 2rem; }
             .container { padding: 0 10px; }
             .logo-text { font-size: 1.2rem; }
             .btn { font-size: 0.95rem; }
-            .modal-content { padding: 1.5rem; }
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: var(--darker-bg);
+            border: 1px solid var(--neon-blue);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 221, 235, 0.3);
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--muted-grey);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: var(--neon-blue);
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--silver-grey);
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--muted-grey);
+            font-size: 0.9rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(197, 204, 213, 0.05);
+            border: 1px solid rgba(197, 204, 213, 0.2);
+            border-radius: 5px;
+            color: var(--silver-grey);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 10px rgba(0, 221, 235, 0.3);
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
+        .form-actions button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-actions .primary-btn {
+            background-color: var(--neon-blue);
+            color: var(--black-bg);
+            font-weight: bold;
+        }
+        
+        .form-actions .secondary-btn {
+            background-color: rgba(197, 204, 213, 0.1);
+            color: var(--muted-grey);
+        }
+        
+        .form-actions button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 10px rgba(0, 221, 235, 0.3);
+        }
+        
+        .toggle-form {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .toggle-form a {
+            color: var(--neon-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-form a:hover {
+            text-decoration: underline;
+        }
+        
+        .user-profile {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 8px 15px;
+            background: rgba(197, 204, 213, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .user-profile:hover {
+            background: rgba(0, 221, 235, 0.2);
+        }
+        
+        .user-profile img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--neon-blue);
+        }
+        
+        .user-profile span {
+            color: var(--silver-grey);
+            font-size: 0.9rem;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(0, 221, 235, 0.9);
+            color: var(--black-bg);
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 221, 235, 0.5);
+            z-index: 1500;
+            transform: translateX(150%);
+            transition: transform 0.3s ease-out;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        /* Sign In/Sign Up Button */
+        .auth-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted-grey);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 8px 15px;
+            background: rgba(197, 204, 213, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-left: auto;
+        }
+        
+        .auth-btn:hover {
+            background: rgba(0, 221, 235, 0.2);
+            color: var(--silver-grey);
+        }
+        
+        .auth-btn i {
+            color: var(--neon-blue);
         }
     </style>
 </head>
@@ -399,10 +524,9 @@
     <canvas id="neuralCanvas"></canvas>
     <div class="vignette"></div>
     <div class="grid"></div>
-
     <nav>
         <div class="container">
-            <a href="https://cybreons.github.io/Cybreon-Homepagess/" class="logo" target="_blank">
+            <a href="#" class="logo">
                 <img src="https://raw.githubusercontent.com/Sujaltalreja04/Cybreon-2/refs/heads/main/X.jpg" alt="Cybreon Logo">
                 <span class="logo-text">Cybreon</span>
             </a>
@@ -412,12 +536,14 @@
                 <a href="https://cybreons.github.io/Cybreon-Blogs/" target="_blank">Blogs</a>
                 <a href="https://cybreons.github.io/Cybreon-Future-page/" target="_blank">Future Vision</a>
                 <a href="https://cybreons.github.io/Cybreon-Contact-us/" target="_blank">Contact Us</a>
-                <a href="#" onclick="showModal('signin')">Sign In</a>
-                <a href="#" onclick="showModal('signup')">Sign Up</a>
             </div>
+            <!-- Replaced user profile with sign in button -->
+            <a href="#" class="auth-btn" id="auth-button">
+                <i class="fas fa-user"></i>
+                <span>Sign In</span>
+            </a>
         </div>
     </nav>
-
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -426,38 +552,9 @@
                 <p>Cybreon is more than just an assistant—it's your AI-powered digital brain designed to understand, automate, and elevate your everyday tasks, projects, and ideas. Whether you're managing complex systems, exploring deep data, or building the future, Cybreon is your ultimate ally in the age of intelligent technology.</p>
                 <button class="btn">Explore Technology</button>
             </div>
+            <!-- Removed scroll indicator as requested -->
         </div>
     </section>
-
-    <!-- Sign In Modal -->
-    <div id="signinModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('signin')">×</span>
-            <h2>Sign In</h2>
-            <input type="email" id="signinEmail" placeholder="Email" required>
-            <input type="password" id="signinPassword" placeholder="Password" required>
-            <button class="btn" onclick="signIn()">Sign In</button>
-            <p style="margin-top: 1rem; text-align: center;">
-                Don't have an account? <a href="#" onclick="switchModal('signin', 'signup')" style="color: var(--neon-blue);">Sign Up</a>
-            </p>
-        </div>
-    </div>
-
-    <!-- Sign Up Modal -->
-    <div id="signupModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('signup')">×</span>
-            <h2>Sign Up</h2>
-            <input type="text" id="signupUsername" placeholder="Username" required>
-            <input type="email" id="signupEmail" placeholder="Email" required>
-            <input type="password" id="signupPassword" placeholder="Password" required>
-            <button class="btn" onclick="signUp()">Sign Up</button>
-            <p style="margin-top: 1rem; text-align: center;">
-                Already have an account? <a href="#" onclick="switchModal('signup', 'signin')" style="color: var(--neon-blue);">Sign In</a>
-            </p>
-        </div>
-    </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -465,25 +562,20 @@
         const connectionCount = isMobile ? 600 : 1200;
         const particleCount = isMobile ? 150 : 300;
         const pulseFrequency = isMobile ? 600 : 300;
-
         const canvas = document.getElementById('neuralCanvas');
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: !isMobile });
-
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
-
         camera.position.z = isMobile ? 120 : 100;
-
         const nodes = [];
         const nodeGeometry = new THREE.SphereGeometry(isMobile ? 0.5 : 0.6, 12, 12);
         const nodeMaterial = new THREE.MeshBasicMaterial({
-            color: 0xc5ccd5,
+            color: 0xc5ccd5, // Silver-grey
             transparent: true,
             opacity: 0.6
         });
-
         for (let i = 0; i < nodeCount; i++) {
             const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
             node.position.set(
@@ -496,15 +588,13 @@
             nodes.push(node);
             scene.add(node);
         }
-
         const connections = [];
         const connectionMaterial = new THREE.LineBasicMaterial({
-            color: 0xc5ccd5,
+            color: 0xc5ccd5, // Silver-grey
             transparent: true,
             opacity: 0.3,
             linewidth: isMobile ? 1.5 : 2
         });
-
         for (let i = 0; i < connectionCount; i++) {
             const node1 = nodes[Math.floor(Math.random() * nodes.length)];
             const node2 = nodes[Math.floor(Math.random() * nodes.length)];
@@ -518,22 +608,20 @@
                 scene.add(line);
             }
         }
-
         const pulseGeometry = new THREE.SphereGeometry(isMobile ? 0.4 : 0.5, 8, 8);
         const pulseMaterialSilver = new THREE.MeshBasicMaterial({
-            color: 0xc5ccd5,
+            color: 0xc5ccd5, // Silver-grey
             transparent: true,
             opacity: 0.8
         });
         const pulseMaterialBlue = new THREE.MeshBasicMaterial({
-            color: 0x00ddeb,
+            color: 0x00ddeb, // Neon blue
             transparent: true,
             opacity: 0.8
         });
         const pulses = [];
-
         function createPulse(startNode, endNode) {
-            const useBlue = Math.random() < 0.2;
+            const useBlue = Math.random() < 0.2; // 20% chance for neon blue pulse
             const pulse = new THREE.Mesh(pulseGeometry, useBlue ? pulseMaterialBlue : pulseMaterialSilver);
             pulse.position.copy(startNode.position);
             pulse.startPos = startNode.position.clone();
@@ -543,7 +631,6 @@
             scene.add(pulse);
             pulses.push(pulse);
         }
-
         setInterval(() => {
             const node1 = nodes[Math.floor(Math.random() * nodes.length)];
             const node2 = nodes[Math.floor(Math.random() * nodes.length)];
@@ -551,14 +638,12 @@
                 createPulse(node1, node2);
             }
         }, pulseFrequency);
-
         const glowMaterial = new THREE.PointsMaterial({
-            color: 0xc5ccd5,
+            color: 0xc5ccd5, // Silver-grey
             size: isMobile ? 0.8 : 1.0,
             transparent: true,
             opacity: 0.7
         });
-
         const glowParticles = [];
         for (let i = 0; i < particleCount; i++) {
             const geometry = new THREE.BufferGeometry();
@@ -571,21 +656,17 @@
             glowParticles.push(particle);
             scene.add(particle);
         }
-
         const raycaster = new THREE.Raycaster();
         const pointer = new THREE.Vector2();
-
         function updatePointer(event) {
             const clientX = event.touches ? event.touches[0].clientX : event.clientX;
             const clientY = event.touches ? event.touches[0].clientY : event.clientY;
             pointer.x = (clientX / window.innerWidth) * 2 - 1;
             pointer.y = -(clientY / window.innerHeight) * 2 + 1;
         }
-
         if (!isMobile) {
             window.addEventListener('mousemove', updatePointer);
         }
-
         function handleInteraction(event) {
             event.preventDefault();
             updatePointer(event);
@@ -625,29 +706,22 @@
                 }, 1000);
             }
         }
-
         canvas.addEventListener(isMobile ? 'touchstart' : 'click', handleInteraction);
-
         let time = 0;
         function animate() {
             requestAnimationFrame(animate);
-
             time += isMobile ? 0.004 : 0.008;
-
             camera.position.x = Math.sin(time * (isMobile ? 0.04 : 0.08)) * (isMobile ? 100 : 80);
             camera.position.z = Math.cos(time * (isMobile ? 0.04 : 0.08)) * (isMobile ? 100 : 80);
             camera.lookAt(0, 0, 0);
-
             nodes.forEach((node, i) => {
                 node.material.opacity = node.baseOpacity + Math.sin(time * 2 + i * 0.1) * 0.15;
                 node.position.x += Math.sin(time + i) * node.distortion;
                 node.position.y += Math.cos(time + i) * node.distortion;
             });
-
             connections.forEach((line, i) => {
                 line.material.opacity = 0.3 + Math.sin(time * 1.5 + i * 0.05) * 0.1;
             });
-
             pulses.forEach((pulse, index) => {
                 pulse.progress += pulse.speed;
                 pulse.position.lerpVectors(pulse.startPos, pulse.endPos, pulse.progress);
@@ -657,7 +731,6 @@
                     pulses.splice(index, 1);
                 }
             });
-
             glowParticles.forEach((particle, index) => {
                 if (particle.progress !== undefined) {
                     particle.progress += 0.02;
@@ -671,7 +744,6 @@
                     particle.material.opacity = 0.7 + Math.sin(time * 2 + index * 0.1) * 0.2;
                 }
             });
-
             if (!isMobile) {
                 raycaster.setFromCamera(pointer, camera);
                 const intersects = raycaster.intersectObjects(nodes);
@@ -682,62 +754,208 @@
                     intersect.object.material.opacity = 1.0;
                 });
             }
-
             renderer.render(scene, camera);
         }
         animate();
-
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
-
-        // Modal Functions
-        function showModal(type) {
-            document.getElementById(`${type}Modal`).style.display = 'flex';
-        }
-
-        function closeModal(type) {
-            document.getElementById(`${type}Modal`).style.display = 'none';
-        }
-
-        function switchModal(from, to) {
-            closeModal(from);
-            showModal(to);
-        }
-
-        function signIn() {
-            const email = document.getElementById('signinEmail').value;
-            const password = document.getElementById('signinPassword').value;
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Sign In/Sign Up functionality
+        const authButton = document.getElementById('auth-button');
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.id = 'auth-modal';
+        
+        const modalContent = document.createElement('div');
+        modalContent.className = 'modal-content';
+        
+        const closeModal = document.createElement('span');
+        closeModal.className = 'close-modal';
+        closeModal.innerHTML = '&times;';
+        
+        const modalTitle = document.createElement('h2');
+        modalTitle.className = 'modal-title';
+        modalTitle.textContent = 'Sign In';
+        
+        const form = document.createElement('form');
+        form.id = 'auth-form';
+        
+        const emailGroup = document.createElement('div');
+        emailGroup.className = 'form-group';
+        const emailLabel = document.createElement('label');
+        emailLabel.textContent = 'Email';
+        const emailInput = document.createElement('input');
+        emailInput.type = 'email';
+        emailInput.name = 'email';
+        emailInput.required = true;
+        
+        const passwordGroup = document.createElement('div');
+        passwordGroup.className = 'form-group';
+        const passwordLabel = document.createElement('label');
+        passwordLabel.textContent = 'Password';
+        const passwordInput = document.createElement('input');
+        passwordInput.type = 'password';
+        passwordInput.name = 'password';
+        passwordInput.required = true;
+        
+        const formActions = document.createElement('div');
+        formActions.className = 'form-actions';
+        const loginBtn = document.createElement('button');
+        loginBtn.className = 'primary-btn';
+        loginBtn.textContent = 'Sign In';
+        const cancelBtn = document.createElement('button');
+        cancelBtn.className = 'secondary-btn';
+        cancelBtn.textContent = 'Cancel';
+        
+        const toggleForm = document.createElement('div');
+        toggleForm.className = 'toggle-form';
+        toggleForm.innerHTML = '<a href="#" id="toggle-auth">Don\'t have an account? Sign Up</a>';
+        
+        // Assemble the modal
+        modalContent.appendChild(closeModal);
+        modalContent.appendChild(modalTitle);
+        modalContent.appendChild(form);
+        form.appendChild(emailGroup);
+        emailGroup.appendChild(emailLabel);
+        emailGroup.appendChild(emailInput);
+        form.appendChild(passwordGroup);
+        passwordGroup.appendChild(passwordLabel);
+        passwordGroup.appendChild(passwordInput);
+        form.appendChild(formActions);
+        formActions.appendChild(loginBtn);
+        formActions.appendChild(cancelBtn);
+        modalContent.appendChild(toggleForm);
+        modal.appendChild(modalContent);
+        document.body.appendChild(modal);
+        
+        // Toggle between Sign In and Sign Up
+        let isSignIn = true;
+        toggleForm.addEventListener('click', (e) => {
+            e.preventDefault();
+            isSignIn = !isSignIn;
+            modalTitle.textContent = isSignIn ? 'Sign In' : 'Sign Up';
+            toggleForm.innerHTML = isSignIn ? 
+                '<a href="#" id="toggle-auth">Don\'t have an account? Sign Up</a>' : 
+                '<a href="#" id="toggle-auth">Already have an account? Sign In</a>';
+            
+            // Clear form
+            emailInput.value = '';
+            passwordInput.value = '';
+        });
+        
+        // Show modal on auth button click
+        authButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = 'flex';
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Handle form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = emailInput.value;
+            const password = passwordInput.value;
+            
+            // Simple validation
             if (email && password) {
-                alert('Sign In Successful! (This is a dummy implementation)');
-                closeModal('signin');
-            } else {
-                alert('Please fill in all fields.');
+                // Update user profile
+                authButton.querySelector('span').textContent = email.split('@')[0];
+                authButton.querySelector('i').className = 'fas fa-user-check';
+                
+                // Change button to sign out
+                authButton.onclick = function(e) {
+                    e.preventDefault();
+                    // Reset to sign in
+                    authButton.querySelector('span').textContent = 'Sign In';
+                    authButton.querySelector('i').className = 'fas fa-user';
+                    modal.style.display = 'none';
+                    showNotification('Successfully signed out!');
+                };
+                
+                // Close modal
+                modal.style.display = 'none';
+                
+                // Show notification
+                showNotification(isSignIn ? 'Successfully signed in!' : 'Account created successfully!');
             }
-        }
-
-        function signUp() {
-            const username = document.getElementById('signupUsername').value;
-            const email = document.getElementById('signupEmail').value;
-            const password = document.getElementById('signupPassword').value;
-            if (username && email && password) {
-                alert('Sign Up Successful! (This is a dummy implementation)');
-                closeModal('signup');
-            } else {
-                alert('Please fill in all fields.');
+        });
+        
+        // Cancel button
+        cancelBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        // Notification function
+        function showNotification(message) {
+            // Remove any existing notification
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
             }
+            
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 10);
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
         }
-
+        
+        // Logo navigation
+        document.querySelector('.logo').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open('https://cybreons.github.io/Cybreon-Homepagess/', '_blank');
+        });
+        
+        // Explore Technology button
+        document.querySelector('.btn').addEventListener('click', () => {
+            showNotification('Exploring Cybreon Technology...');
+        });
+        
         // Periodic glitch effect for headings
         setInterval(() => {
-            const headings = document.querySelectorAll('h1, h2, .logo-text');
+            const headings = document.querySelectorAll('h1, h2');
             headings.forEach(heading => {
                 if (Math.random() < 0.1) {
-                    heading.style.animation = 'glitch 0.5s ease-in-out';
+                    heading.style.animation = 'glow 2s ease-in-out';
                     setTimeout(() => {
-                        heading.style.animation = 'glow 2s ease-in-out infinite alternate';
+                        heading.style.animation = 'glitch 0.5s ease-in-out';
+                        setTimeout(() => {
+                            heading.style.animation = 'glow 2s ease-in-out infinite alternate';
+                        }, 500);
                     }, 500);
                 }
             });
