@@ -269,28 +269,58 @@
             color: var(--neon-blue);
         }
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 35px;
-            height: 35px;
-            border: 2px solid var(--neon-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1001;
             justify-content: center;
-            animation: pulse 2s ease-in-out infinite;
-            cursor: pointer;
-            z-index: 2;
+            align-items: center;
         }
 
-        .scroll-indicator::before {
-            content: '↓';
-            color: var(--neon-blue);
-            font-size: 1.2rem;
-            text-shadow: 0 0 8px rgba(0, 221, 235, 0.5);
+        .modal-content {
+            background: var(--darker-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            width: 400px;
+            max-width: 90%;
+            border: 1px solid var(--glass-border);
+            position: relative;
+        }
+
+        .modal-content h2 {
+            color: var(--silver-grey);
+            margin-bottom: 1rem;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            background: rgba(197, 204, 213, 0.1);
+            border: 1px solid var(--glass-border);
+            color: var(--silver-grey);
+            border-radius: 4px;
+        }
+
+        .modal-content button {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: var(--muted-grey);
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         @keyframes fadeIn {
@@ -328,7 +358,7 @@
 
         @keyframes glitch {
             0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
+            20% { transform: translate(-2px,  cozinha 2px); }
             40% { transform: translate(-2px, -2px); }
             60% { transform: translate(2px, 2px); }
             80% { transform: translate(2px, -2px); }
@@ -354,8 +384,6 @@
             .logo-text { font-size: 1.4rem; }
             .btn { padding: 0.6rem 1.5rem; font-size: 1rem; }
             .hero p { font-size: 0.95rem; max-width: 90%; }
-            .scroll-indicator { width: 30px; height: 30px; }
-            .scroll-indicator::before { font-size: 1rem; }
         }
 
         @media (max-width: 480px) {
@@ -363,6 +391,7 @@
             .container { padding: 0 10px; }
             .logo-text { font-size: 1.2rem; }
             .btn { font-size: 0.95rem; }
+            .modal-content { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -373,16 +402,18 @@
 
     <nav>
         <div class="container">
-            <a href="#" class="logo">
+            <a href="https://cybreons.github.io/Cybreon-Homepagess/" class="logo" target="_blank">
                 <img src="https://raw.githubusercontent.com/Sujaltalreja04/Cybreon-2/refs/heads/main/X.jpg" alt="Cybreon Logo">
                 <span class="logo-text">Cybreon</span>
             </a>
             <div class="nav-links">
-                <a href="#about">About Us</a>
-                <a href="#services">Services</a>
-                <a href="#blogs">Blogs</a>
-                <a href="#future">Future Vision</a>
-                <a href="#contact">Contact Us</a>
+                <a href="https://cybreons.github.io/Cybreon-About-Us/" target="_blank">About Us</a>
+                <a href="https://cybreons.github.io/Cybreon-services/" target="_blank">Services</a>
+                <a href="https://cybreons.github.io/Cybreon-Blogs/" target="_blank">Blogs</a>
+                <a href="https://cybreons.github.io/Cybreon-Future-page/" target="_blank">Future Vision</a>
+                <a href="https://cybreons.github.io/Cybreon-Contact-us/" target="_blank">Contact Us</a>
+                <a href="#" onclick="showModal('signin')">Sign In</a>
+                <a href="#" onclick="showModal('signup')">Sign Up</a>
             </div>
         </div>
     </nav>
@@ -393,11 +424,39 @@
                 <h1>Welcome to Cybreon – Your Digital Brain</h1>
                 <p>🚀 Revolutionizing Intelligence. Empowering Possibilities.</p>
                 <p>Cybreon is more than just an assistant—it's your AI-powered digital brain designed to understand, automate, and elevate your everyday tasks, projects, and ideas. Whether you're managing complex systems, exploring deep data, or building the future, Cybreon is your ultimate ally in the age of intelligent technology.</p>
-                <button class="btn">Get Started Now</button>
+                <button class="btn">Explore Technology</button>
             </div>
-            <div class="scroll-indicator" onclick="document.querySelector('#about').scrollIntoView({behavior: 'smooth'})"></div>
         </div>
     </section>
+
+    <!-- Sign In Modal -->
+    <div id="signinModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signin')">×</span>
+            <h2>Sign In</h2>
+            <input type="email" id="signinEmail" placeholder="Email" required>
+            <input type="password" id="signinPassword" placeholder="Password" required>
+            <button class="btn" onclick="signIn()">Sign In</button>
+            <p style="margin-top: 1rem; text-align: center;">
+                Don't have an account? <a href="#" onclick="switchModal('signin', 'signup')" style="color: var(--neon-blue);">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signup')">×</span>
+            <h2>Sign Up</h2>
+            <input type="text" id="signupUsername" placeholder="Username" required>
+            <input type="email" id="signupEmail" placeholder="Email" required>
+            <input type="password" id="signupPassword" placeholder="Password" required>
+            <button class="btn" onclick="signUp()">Sign Up</button>
+            <p style="margin-top: 1rem; text-align: center;">
+                Already have an account? <a href="#" onclick="switchModal('signup', 'signin')" style="color: var(--neon-blue);">Sign In</a>
+            </p>
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
@@ -420,7 +479,7 @@
         const nodes = [];
         const nodeGeometry = new THREE.SphereGeometry(isMobile ? 0.5 : 0.6, 12, 12);
         const nodeMaterial = new THREE.MeshBasicMaterial({
-            color: 0xc5ccd5, // Silver-grey
+            color: 0xc5ccd5,
             transparent: true,
             opacity: 0.6
         });
@@ -440,7 +499,7 @@
 
         const connections = [];
         const connectionMaterial = new THREE.LineBasicMaterial({
-            color: 0xc5ccd5, // Silver-grey
+            color: 0xc5ccd5,
             transparent: true,
             opacity: 0.3,
             linewidth: isMobile ? 1.5 : 2
@@ -462,19 +521,19 @@
 
         const pulseGeometry = new THREE.SphereGeometry(isMobile ? 0.4 : 0.5, 8, 8);
         const pulseMaterialSilver = new THREE.MeshBasicMaterial({
-            color: 0xc5ccd5, // Silver-grey
+            color: 0xc5ccd5,
             transparent: true,
             opacity: 0.8
         });
         const pulseMaterialBlue = new THREE.MeshBasicMaterial({
-            color: 0x00ddeb, // Neon blue
+            color: 0x00ddeb,
             transparent: true,
             opacity: 0.8
         });
         const pulses = [];
 
         function createPulse(startNode, endNode) {
-            const useBlue = Math.random() < 0.2; // 20% chance for neon blue pulse
+            const useBlue = Math.random() < 0.2;
             const pulse = new THREE.Mesh(pulseGeometry, useBlue ? pulseMaterialBlue : pulseMaterialSilver);
             pulse.position.copy(startNode.position);
             pulse.startPos = startNode.position.clone();
@@ -494,7 +553,7 @@
         }, pulseFrequency);
 
         const glowMaterial = new THREE.PointsMaterial({
-            color: 0xc5ccd5, // Silver-grey
+            color: 0xc5ccd5,
             size: isMobile ? 0.8 : 1.0,
             transparent: true,
             opacity: 0.7
@@ -634,14 +693,42 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+        // Modal Functions
+        function showModal(type) {
+            document.getElementById(`${type}Modal`).style.display = 'flex';
+        }
+
+        function closeModal(type) {
+            document.getElementById(`${type}Modal`).style.display = 'none';
+        }
+
+        function switchModal(from, to) {
+            closeModal(from);
+            showModal(to);
+        }
+
+        function signIn() {
+            const email = document.getElementById('signinEmail').value;
+            const password = document.getElementById('signinPassword').value;
+            if (email && password) {
+                alert('Sign In Successful! (This is a dummy implementation)');
+                closeModal('signin');
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+
+        function signUp() {
+            const username = document.getElementById('signupUsername').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            if (username && email && password) {
+                alert('Sign Up Successful! (This is a dummy implementation)');
+                closeModal('signup');
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
 
         // Periodic glitch effect for headings
         setInterval(() => {
