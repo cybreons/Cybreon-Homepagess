@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Cybreon - Your Digital Brain</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --silver-grey: #c5ccd5;
@@ -16,10 +17,6 @@
             --glass-bg: rgba(197, 204, 213, 0.05);
             --glass-border: rgba(197, 204, 213, 0.1);
             --grid-size: 40px;
-        }
-        @font-face {
-            font-family: 'Space Grotesk';
-            src: url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
         }
         * {
             margin: 0;
@@ -281,7 +278,7 @@
         @keyframes neonPulse {
             0% { box-shadow: 0 0 15px rgba(0, 221, 235, 0.5), 0 0 30px rgba(0, 221, 235, 0.3); }
             50% { box-shadow: 0 0 20px rgba(0, 221, 235, 0.7), 0 0 40px rgba(0, 221, 235, 0.5); }
-            100% { box-shadow: 0 0 15px rgba(0, 221, 235, 0.5), 0 0 30px rgba(0, 221, 235, 0.3); }
+            100% { box-shadow: 0 0 15px rgba(0, 221, 235, 0.5), 0 0 30px rgba(0, 221, 235, 0MAIL3); }
         }
         @keyframes pulse {
             0% { transform: translateX(-50%) scale(1); opacity: 0.7; }
@@ -322,7 +319,7 @@
             .logo-text { font-size: 1.2rem; }
             .btn { font-size: 0.95rem; }
         }
-        
+
         /* Modal styles */
         .modal {
             display: none;
@@ -336,7 +333,7 @@
             justify-content: center;
             align-items: center;
         }
-        
+
         .modal-content {
             background-color: var(--darker-bg);
             border: 1px solid var(--neon-blue);
@@ -348,7 +345,7 @@
             box-shadow: 0 0 20px rgba(0, 221, 235, 0.3);
             animation: fadeIn 0.3s ease-out;
         }
-        
+
         .close-modal {
             position: absolute;
             top: 15px;
@@ -358,29 +355,29 @@
             cursor: pointer;
             transition: color 0.3s ease;
         }
-        
+
         .close-modal:hover {
             color: var(--neon-blue);
         }
-        
+
         .modal-title {
             font-size: 1.5rem;
             margin-bottom: 20px;
             color: var(--silver-grey);
             text-align: center;
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
             color: var(--muted-grey);
             font-size: 0.9rem;
         }
-        
+
         .form-group input {
             width: 100%;
             padding: 12px;
@@ -391,19 +388,19 @@
             font-size: 1rem;
             transition: all 0.3s ease;
         }
-        
+
         .form-group input:focus {
             outline: none;
             border-color: var(--neon-blue);
             box-shadow: 0 0 10px rgba(0, 221, 235, 0.3);
         }
-        
+
         .form-actions {
             display: flex;
             justify-content: space-between;
             gap: 10px;
         }
-        
+
         .form-actions button {
             flex: 1;
             padding: 12px;
@@ -413,39 +410,39 @@
             font-size: 1rem;
             transition: all 0.3s ease;
         }
-        
+
         .form-actions .primary-btn {
             background-color: var(--neon-blue);
             color: var(--black-bg);
             font-weight: bold;
         }
-        
+
         .form-actions .secondary-btn {
             background-color: rgba(197, 204, 213, 0.1);
             color: var(--muted-grey);
         }
-        
+
         .form-actions button:hover {
             transform: translateY(-2px);
             box-shadow: 0 0 10px rgba(0, 221, 235, 0.3);
         }
-        
+
         .toggle-form {
             text-align: center;
             margin-top: 20px;
         }
-        
+
         .toggle-form a {
             color: var(--neon-blue);
             text-decoration: none;
             font-size: 0.9rem;
             transition: all 0.3s ease;
         }
-        
+
         .toggle-form a:hover {
             text-decoration: underline;
         }
-        
+
         .user-profile {
             display: none;
             align-items: center;
@@ -456,11 +453,11 @@
             border-radius: 20px;
             transition: all 0.3s ease;
         }
-        
+
         .user-profile:hover {
             background: rgba(0, 221, 235, 0.2);
         }
-        
+
         .user-profile img {
             width: 30px;
             height: 30px;
@@ -468,12 +465,12 @@
             object-fit: cover;
             border: 2px solid var(--neon-blue);
         }
-        
+
         .user-profile span {
             color: var(--silver-grey);
             font-size: 0.9rem;
         }
-        
+
         .notification {
             position: fixed;
             top: 20px;
@@ -489,11 +486,11 @@
             font-size: 0.9rem;
             font-weight: bold;
         }
-        
+
         .notification.show {
             transform: translateX(0);
         }
-        
+
         /* Sign In/Sign Up Button */
         .auth-btn {
             display: flex;
@@ -509,14 +506,62 @@
             cursor: pointer;
             margin-left: auto;
         }
-        
+
         .auth-btn:hover {
             background: rgba(0, 221, 235, 0.2);
             color: var(--silver-grey);
         }
-        
+
         .auth-btn i {
             color: var(--neon-blue);
+        }
+
+        /* Google Sign In Button */
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(197, 204, 213, 0.1);
+            color: var(--silver-grey);
+            border: 1px solid rgba(197, 204, 213, 0.2);
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .google-btn:hover {
+            background-color: rgba(197, 204, 213, 0.15);
+            border-color: rgba(197, 204, 213, 0.3);
+        }
+
+        .google-btn i {
+            margin-right: 10px;
+            color: var(--neon-blue);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            color: var(--muted-grey);
+            font-size: 0.8rem;
+        }
+
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid rgba(197, 204, 213, 0.2);
+        }
+
+        .divider::before {
+            margin-right: 10px;
+        }
+
+        .divider::after {
+            margin-left: 10px;
         }
     </style>
 </head>
@@ -556,7 +601,30 @@
         </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-analytics.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCizs70htjgL7Ig8XvE0GaFhLiFDrCSmq0",
+            authDomain: "cybreon-2.firebaseapp.com",
+            projectId: "cybreon-2",
+            storageBucket: "cybreon-2.appspot.com",
+            messagingSenderId: "937375001253",
+            appId: "1:937375001253:web:3d969cfa2888881e693b4c",
+            measurementId: "G-YLD3L8LV21"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+
+        // Three.js Neural Network Animation
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         const nodeCount = isMobile ? 200 : 400;
         const connectionCount = isMobile ? 600 : 1200;
@@ -572,7 +640,7 @@
         const nodes = [];
         const nodeGeometry = new THREE.SphereGeometry(isMobile ? 0.5 : 0.6, 12, 12);
         const nodeMaterial = new THREE.MeshBasicMaterial({
-            color: 0xc5ccd5, // Silver-grey
+            color: 0xc5ccd5,
             transparent: true,
             opacity: 0.6
         });
@@ -590,7 +658,7 @@
         }
         const connections = [];
         const connectionMaterial = new THREE.LineBasicMaterial({
-            color: 0xc5ccd5, // Silver-grey
+            color: 0xc5ccd5,
             transparent: true,
             opacity: 0.3,
             linewidth: isMobile ? 1.5 : 2
@@ -610,18 +678,18 @@
         }
         const pulseGeometry = new THREE.SphereGeometry(isMobile ? 0.4 : 0.5, 8, 8);
         const pulseMaterialSilver = new THREE.MeshBasicMaterial({
-            color: 0xc5ccd5, // Silver-grey
+            color: 0xc5ccd5,
             transparent: true,
             opacity: 0.8
         });
         const pulseMaterialBlue = new THREE.MeshBasicMaterial({
-            color: 0x00ddeb, // Neon blue
+            color: 0x00ddeb,
             transparent: true,
             opacity: 0.8
         });
         const pulses = [];
         function createPulse(startNode, endNode) {
-            const useBlue = Math.random() < 0.2; // 20% chance for neon blue pulse
+            const useBlue = Math.random() < 0.2;
             const pulse = new THREE.Mesh(pulseGeometry, useBlue ? pulseMaterialBlue : pulseMaterialSilver);
             pulse.position.copy(startNode.position);
             pulse.startPos = startNode.position.clone();
@@ -639,7 +707,7 @@
             }
         }, pulseFrequency);
         const glowMaterial = new THREE.PointsMaterial({
-            color: 0xc5ccd5, // Silver-grey
+            color: 0xc5ccd5,
             size: isMobile ? 0.8 : 1.0,
             transparent: true,
             opacity: 0.7
@@ -765,32 +833,48 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
-        
+
         // Sign In/Sign Up functionality
         const authButton = document.getElementById('auth-button');
         const modal = document.createElement('div');
         modal.className = 'modal';
         modal.id = 'auth-modal';
-        
+
         const modalContent = document.createElement('div');
         modalContent.className = 'modal-content';
-        
+
         const closeModal = document.createElement('span');
         closeModal.className = 'close-modal';
-        closeModal.innerHTML = '&times;';
-        
+        closeModal.innerHTML = '×';
+
         const modalTitle = document.createElement('h2');
         modalTitle.className = 'modal-title';
         modalTitle.textContent = 'Sign In';
-        
+
         const form = document.createElement('form');
         form.id = 'auth-form';
-        
+
+        // Google Sign In Button
+        const googleBtn = document.createElement('button');
+        googleBtn.type = 'button';
+        googleBtn.className = 'google-btn';
+        googleBtn.innerHTML = `
+            <i class="fab fa-google"></i> Continue with Google
+        `;
+
+        const divider = document.createElement('div');
+        divider.className = 'divider';
+        divider.textContent = 'or';
+
         const emailGroup = document.createElement('div');
         emailGroup.className = 'form-group';
         const emailLabel = document.createElement('label');
@@ -799,7 +883,7 @@
         emailInput.type = 'email';
         emailInput.name = 'email';
         emailInput.required = true;
-        
+
         const passwordGroup = document.createElement('div');
         passwordGroup.className = 'form-group';
         const passwordLabel = document.createElement('label');
@@ -808,7 +892,7 @@
         passwordInput.type = 'password';
         passwordInput.name = 'password';
         passwordInput.required = true;
-        
+
         const formActions = document.createElement('div');
         formActions.className = 'form-actions';
         const loginBtn = document.createElement('button');
@@ -817,15 +901,17 @@
         const cancelBtn = document.createElement('button');
         cancelBtn.className = 'secondary-btn';
         cancelBtn.textContent = 'Cancel';
-        
+
         const toggleForm = document.createElement('div');
         toggleForm.className = 'toggle-form';
         toggleForm.innerHTML = '<a href="#" id="toggle-auth">Don\'t have an account? Sign Up</a>';
-        
+
         // Assemble the modal
         modalContent.appendChild(closeModal);
         modalContent.appendChild(modalTitle);
         modalContent.appendChild(form);
+        form.appendChild(googleBtn);
+        form.appendChild(divider);
         form.appendChild(emailGroup);
         emailGroup.appendChild(emailLabel);
         emailGroup.appendChild(emailInput);
@@ -838,94 +924,144 @@
         modalContent.appendChild(toggleForm);
         modal.appendChild(modalContent);
         document.body.appendChild(modal);
-        
+
         // Toggle between Sign In and Sign Up
         let isSignIn = true;
         toggleForm.addEventListener('click', (e) => {
             e.preventDefault();
             isSignIn = !isSignIn;
             modalTitle.textContent = isSignIn ? 'Sign In' : 'Sign Up';
-            toggleForm.innerHTML = isSignIn ? 
-                '<a href="#" id="toggle-auth">Don\'t have an account? Sign Up</a>' : 
+            loginBtn.textContent = isSignIn ? 'Sign In' : 'Sign Up';
+            toggleForm.innerHTML = isSignIn ?
+                '<a href="#" id="toggle-auth">Don\'t have an account? Sign Up</a>' :
                 '<a href="#" id="toggle-auth">Already have an account? Sign In</a>';
-            
+
             // Clear form
             emailInput.value = '';
             passwordInput.value = '';
         });
-        
+
         // Show modal on auth button click
         authButton.addEventListener('click', (e) => {
             e.preventDefault();
             modal.style.display = 'flex';
         });
-        
+
         // Close modal
         closeModal.addEventListener('click', () => {
             modal.style.display = 'none';
         });
-        
+
         // Close modal when clicking outside
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
             }
         });
-        
-        // Handle form submission
-        form.addEventListener('submit', (e) => {
+
+        // Handle Google Sign In
+        googleBtn.addEventListener('click', async () => {
+            try {
+                const result = await signInWithPopup(auth, provider);
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                // The signed-in user info.
+                const user = result.user;
+
+                showNotification('Successfully signed in with Google!');
+                modal.style.display = 'none';
+            } catch (error) {
+                console.error('Google sign-in error:', error);
+                showNotification(`Error: ${error.message}`);
+            }
+        });
+
+        // Handle form submission with Firebase Authentication
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = emailInput.value;
             const password = passwordInput.value;
-            
-            // Simple validation
-            if (email && password) {
-                // Update user profile
+
+            try {
+                if (isSignIn) {
+                    // Sign In
+                    await signInWithEmailAndPassword(auth, email, password);
+                    showNotification('Successfully signed in!');
+                } else {
+                    // Sign Up
+                    await createUserWithEmailAndPassword(auth, email, password);
+                    showNotification('Account created successfully!');
+                }
+
+                // Update UI after successful sign-in/sign-up
                 authButton.querySelector('span').textContent = email.split('@')[0];
                 authButton.querySelector('i').className = 'fas fa-user-check';
-                
-                // Change button to sign out
-                authButton.onclick = function(e) {
-                    e.preventDefault();
-                    // Reset to sign in
-                    authButton.querySelector('span').textContent = 'Sign In';
-                    authButton.querySelector('i').className = 'fas fa-user';
-                    modal.style.display = 'none';
-                    showNotification('Successfully signed out!');
-                };
-                
-                // Close modal
                 modal.style.display = 'none';
-                
-                // Show notification
-                showNotification(isSignIn ? 'Successfully signed in!' : 'Account created successfully!');
+            } catch (error) {
+                console.error('Authentication error:', error);
+                showNotification(`Error: ${error.message}`);
             }
         });
-        
+
+        // Handle sign out
+        function handleSignOut() {
+            signOut(auth).then(() => {
+                authButton.querySelector('span').textContent = 'Sign In';
+                authButton.querySelector('i').className = 'fas fa-user';
+                authButton.onclick = (e) => {
+                    e.preventDefault();
+                    modal.style.display = 'flex';
+                };
+                showNotification('Successfully signed out!');
+            }).catch((error) => {
+                console.error('Sign out error:', error);
+                showNotification(`Error: ${error.message}`);
+            });
+        }
+
+        // Monitor auth state
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // User is signed in
+                authButton.querySelector('span').textContent = user.displayName ? user.displayName.split(' ')[0] : user.email.split('@')[0];
+                authButton.querySelector('i').className = 'fas fa-user-check';
+                authButton.onclick = (e) => {
+                    e.preventDefault();
+                    handleSignOut();
+                };
+            } else {
+                // User is signed out
+                authButton.querySelector('span').textContent = 'Sign In';
+                authButton.querySelector('i').className = 'fas fa-user';
+                authButton.onclick = (e) => {
+                    e.preventDefault();
+                    modal.style.display = 'flex';
+                };
+            }
+        });
+
         // Cancel button
         cancelBtn.addEventListener('click', () => {
             modal.style.display = 'none';
         });
-        
+
         // Notification function
         function showNotification(message) {
-            // Remove any existing notification
             const existingNotification = document.querySelector('.notification');
             if (existingNotification) {
                 existingNotification.remove();
             }
-            
+
             const notification = document.createElement('div');
             notification.className = 'notification';
             notification.textContent = message;
             document.body.appendChild(notification);
-            
-            // Show notification
+
             setTimeout(() => {
                 notification.classList.add('show');
             }, 10);
-            
-            // Hide notification after 3 seconds
+
             setTimeout(() => {
                 notification.classList.remove('show');
                 setTimeout(() => {
@@ -933,18 +1069,18 @@
                 }, 300);
             }, 3000);
         }
-        
+
         // Logo navigation
         document.querySelector('.logo').addEventListener('click', (e) => {
             e.preventDefault();
             window.open('https://cybreons.github.io/Cybreon-Homepagess/', '_blank');
         });
-        
+
         // Explore Technology button
         document.querySelector('.btn').addEventListener('click', () => {
             showNotification('Exploring Cybreon Technology...');
         });
-        
+
         // Periodic glitch effect for headings
         setInterval(() => {
             const headings = document.querySelectorAll('h1, h2');
@@ -961,5 +1097,43 @@
             });
         }, 5000);
     </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 </body>
 </html>
