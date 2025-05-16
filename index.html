@@ -278,7 +278,7 @@
         @keyframes neonPulse {
             0% { box-shadow: 0 0 15px rgba(0, 221, 235, 0.5), 0 0 30px rgba(0, 221, 235, 0.3); }
             50% { box-shadow: 0 0 20px rgba(0, 221, 235, 0.7), 0 0 40px rgba(0, 221, 235, 0.5); }
-            100% { box-shadow: 0 0 15px rgba(0, 221, 235, 0.5), 0 0 30px rgba(0, 221, 235, 0MAIL3); }
+            100% { box-shadow: 0 0 15px rgba(0, 221, 235, 0.5), 0 0 30px rgba(0, 221, 235, 0.3); }
         }
         @keyframes pulse {
             0% { transform: translateX(-50%) scale(1); opacity: 0.7; }
@@ -367,7 +367,7 @@
             text-align: center;
         }
 
-        .form-group {
+        .fom-group {
             margin-bottom: 20px;
         }
 
@@ -582,7 +582,6 @@
                 <a href="https://cybreons.github.io/Cybreon-Future-page/" target="_blank">Future Vision</a>
                 <a href="https://cybreons.github.io/Cybreon-Contact-us/" target="_blank">Contact Us</a>
             </div>
-            <!-- Replaced user profile with sign in button -->
             <a href="#" class="auth-btn" id="auth-button">
                 <i class="fas fa-user"></i>
                 <span>Sign In</span>
@@ -595,9 +594,8 @@
                 <h1>Welcome to Cybreon – Your Digital Brain</h1>
                 <p>🚀 Revolutionizing Intelligence. Empowering Possibilities.</p>
                 <p>Cybreon is more than just an assistant—it's your AI-powered digital brain designed to understand, automate, and elevate your everyday tasks, projects, and ideas. Whether you're managing complex systems, exploring deep data, or building the future, Cybreon is your ultimate ally in the age of intelligent technology.</p>
-                <button class="btn">Explore Technology</button>
+                <a href="https://discord.gg/k7DEvVGt" target="_blank" class="btn">Explore Community</a>
             </div>
-            <!-- Removed scroll indicator as requested -->
         </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -963,10 +961,8 @@
         googleBtn.addEventListener('click', async () => {
             try {
                 const result = await signInWithPopup(auth, provider);
-                // This gives you a Google Access Token. You can use it to access the Google API.
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
-                // The signed-in user info.
                 const user = result.user;
 
                 showNotification('Successfully signed in with Google!');
@@ -985,16 +981,13 @@
 
             try {
                 if (isSignIn) {
-                    // Sign In
                     await signInWithEmailAndPassword(auth, email, password);
                     showNotification('Successfully signed in!');
                 } else {
-                    // Sign Up
                     await createUserWithEmailAndPassword(auth, email, password);
                     showNotification('Account created successfully!');
                 }
 
-                // Update UI after successful sign-in/sign-up
                 authButton.querySelector('span').textContent = email.split('@')[0];
                 authButton.querySelector('i').className = 'fas fa-user-check';
                 modal.style.display = 'none';
@@ -1023,7 +1016,6 @@
         // Monitor auth state
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                // User is signed in
                 authButton.querySelector('span').textContent = user.displayName ? user.displayName.split(' ')[0] : user.email.split('@')[0];
                 authButton.querySelector('i').className = 'fas fa-user-check';
                 authButton.onclick = (e) => {
@@ -1031,7 +1023,6 @@
                     handleSignOut();
                 };
             } else {
-                // User is signed out
                 authButton.querySelector('span').textContent = 'Sign In';
                 authButton.querySelector('i').className = 'fas fa-user';
                 authButton.onclick = (e) => {
@@ -1076,9 +1067,9 @@
             window.open('https://cybreons.github.io/Cybreon-Homepagess/', '_blank');
         });
 
-        // Explore Technology button
+        // Explore Community button
         document.querySelector('.btn').addEventListener('click', () => {
-            showNotification('Exploring Cybreon Technology...');
+            showNotification('Joining the Cybreon Community...');
         });
 
         // Periodic glitch effect for headings
@@ -1097,43 +1088,5 @@
             });
         }, 5000);
     </script>
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
 </body>
 </html>
